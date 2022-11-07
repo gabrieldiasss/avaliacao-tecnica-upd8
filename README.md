@@ -36,7 +36,15 @@ run `yarn`
 ## Banco de dados (Docker)
 run `docker-compose up`
 
-MySQL Workbench & run query:
+## Open MySQL Workbench
+
+### New connection `Username`: `user`
+<img width="816" alt="Captura de Tela 2022-11-07 às 01 38 09" src="https://user-images.githubusercontent.com/10448568/200228010-95ebf0f7-fa80-48c6-9fbc-9d9c352c9765.png">
+
+### Set password: `password`
+<img width="626" alt="Captura de Tela 2022-11-07 às 01 38 43" src="https://user-images.githubusercontent.com/10448568/200228231-d8146cce-dcde-4752-b6e0-ec87c81376cc.png">
+
+ run query:
 ```sql
     CREATE TABLE `db`.`clients` (
       `id` INT NOT NULL AUTO_INCREMENT,
