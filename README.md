@@ -27,3 +27,32 @@ para trabalhar no backend.
 <img width="998" src="https://user-images.githubusercontent.com/10448568/200205420-246e9f73-5b8a-46be-b685-bf370cebf34e.png">
 
 <img width="995" src="https://user-images.githubusercontent.com/10448568/200205385-ccd944c3-d9ea-4082-826a-2aa356c0efb6.png">
+
+# Backend
+run `cd backend`
+
+run `yarn`
+
+## Banco de dados (Docker)
+run `docker-compose up`
+
+MySQL Workbench & run query:
+```sql
+    CREATE TABLE `db`.`clients` (
+      `id` INT NOT NULL AUTO_INCREMENT,
+      `cpf` VARCHAR(255) NOT NULL,
+      `name` VARCHAR(255) NOT NULL,
+      `birth` DATETIME NULL,
+      `gender` VARCHAR(255) NOT NULL,
+      `address` VARCHAR(255) NOT NULL,
+      `state` VARCHAR(255) NOT NULL,
+      `city` VARCHAR(255) NOT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC) VISIBLE);
+```
+
+## run backend
+run `yarn start:dev`
+
+## Documentation da API (Swagger)
+http://localhost:3000/api#/
