@@ -1,4 +1,3 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { Gender } from "../enums/gender.enum";
 import { ApiProperty } from '@nestjs/swagger';
 

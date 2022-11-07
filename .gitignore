@@ -1,0 +1,101 @@
+# OSX
+#
+/frontend/.DS_Store
+
+# Xcode
+#
+/frontend/build/
+/frontend/*.pbxuser
+/frontend/!default.pbxuser
+/frontend/*.mode1v3
+/frontend/!default.mode1v3
+/frontend/*.mode2v3
+/frontend/!default.mode2v3
+/frontend/*.perspectivev3
+/frontend/!default.perspectivev3
+/frontend/xcuserdata
+/frontend/*.xccheckout
+/frontend/*.moved-aside
+/frontend/DerivedData
+/frontend/*.hmap
+/frontend/*.ipa
+/frontend/*.xcuserstate
+/frontend/ios/.xcode.env.local
+
+# Android/IntelliJ
+#
+/frontend/build/
+/frontend/.idea
+/frontend/.gradle
+/frontend/local.properties
+/frontend/*.iml
+/frontend/*.hprof
+/frontend/.cxx/
+
+# node.js
+#
+/frontend/node_modules/
+/frontend/npm-debug.log
+/frontend/yarn-error.log
+
+# BUCK
+/frontend/buck-out/
+/frontend/\.buckd/
+/frontend/*.keystore
+/frontend/!debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+/frontend/**/fastlane/report.xml
+/frontend/**/fastlane/Preview.html
+/frontend/**/fastlane/screenshots
+/frontend/**/fastlane/test_output
+
+# Bundle artifact
+/frontend/*.jsbundle
+
+# Ruby / CocoaPods
+/frontend/ios/Pods/
+/frontend/vendor/bundle/
+
+
+# compiled output
+/backend/dist
+/backend/node_modules
+
+# Logs
+/backend/logs
+/backend/*.log
+/backend/npm-debug.log*
+/backend/pnpm-debug.log*
+/backend/yarn-debug.log*
+/backend/yarn-error.log*
+/backend/lerna-debug.log*
+
+# OS
+/backend/.DS_Store
+
+# Tests
+/backend/coverage
+/backend/.nyc_output
+
+# IDEs and editors
+/backend/.idea
+/backend/.project
+/backend/.classpath
+/backend/.c9/
+/backend/*.launch
+/backend/.settings/
+/backend/*.sublime-workspace
+
+# IDE - VSCode
+/backend/.vscode/*
+/backend/!.vscode/settings.json
+/backend/!.vscode/tasks.json
+/backend/!.vscode/launch.json
+/backend/!.vscode/extensions.json
