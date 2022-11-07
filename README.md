@@ -22,3 +22,8 @@ para trabalhar no backend.
 #### 1 – Após finalizar o desenvolvimento gerar o APK do aplicativo e um arquivo .rar ou .zip com o código fonte do Projeto ou se preferir subir em algum repositório, como o github, deverá enviar o link do projeto.
 #### 2 – Enviar junto ao projeto os scripts para rodar API Rest e também os scripts de banco de dados e suas respectivas tabelas.
 #### 3 – Ao final responder o e-mail anexando o Projeto de Teste da Entrevista para avaliação
+
+### Protótipo Sugerido
+<img width="998" src="https://user-images.githubusercontent.com/10448568/200205420-246e9f73-5b8a-46be-b685-bf370cebf34e.png">
+
+<img width="995" src="https://user-images.githubusercontent.com/10448568/200205385-ccd944c3-d9ea-4082-826a-2aa356c0efb6.png">
