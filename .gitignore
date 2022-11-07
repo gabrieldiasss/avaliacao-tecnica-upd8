@@ -24,13 +24,14 @@
 
 # Android/IntelliJ
 #
-/frontend/build/
-/frontend/.idea
-/frontend/.gradle
-/frontend/local.properties
-/frontend/*.iml
-/frontend/*.hprof
-/frontend/.cxx/
+/frontend/android/build/
+/frontend/android/.idea
+/frontend/android/.gradle
+/frontend/android/local.properties
+/frontend/android/*.iml
+/frontend/android/*.hprof
+/frontend/android/.cxx/
+/frontend/android/app/build/
 
 # node.js
 #
