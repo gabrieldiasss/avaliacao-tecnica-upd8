@@ -38,7 +38,7 @@ const { findAll, del, update, create, findOne } = {
     const { data } = await api.patch<Client>(`clients/${id}`, dto)
     return data
   },
-  findOne: async (id?: number): Promise<Client> => {
+  findOne: async (id: number): Promise<Client> => {
     const { data } = await api.get<Client>(`clients/${id}`)
     return data
   }
