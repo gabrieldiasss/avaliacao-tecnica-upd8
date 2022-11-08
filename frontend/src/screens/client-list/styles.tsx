@@ -1,4 +1,4 @@
-import { Button, ScrollView, Text, View } from 'react-native';
+import {Button, ScrollView, Text, View} from 'react-native';
 import styled from 'styled-components/native';
 
 const Conteiner = styled(ScrollView)`
@@ -29,7 +29,7 @@ const ItemTextPersonName = styled(Text).attrs({
 })``;
 
 const ItemTextPerson = styled(Text).attrs({
-  fontStyle: 'italic'
+  fontStyle: 'italic',
 })``;
 
 const ItemTextLocation = styled(Text)`
@@ -37,27 +37,25 @@ const ItemTextLocation = styled(Text)`
 `;
 
 const ItemActions = styled(View).attrs({
-  marginTop: 10, 
-  flex: 1, 
-  flexDirection: 'row', 
-  flexWrap: 'nowrap', 
-  alignContent: 'stretch'
+  marginTop: 10,
+  flex: 1,
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  alignContent: 'stretch',
 })``;
 
 const ItemActionsEdit = styled(View)`
-  flex: 1; 
+  flex: 1;
   margin-right: 5px;
 `;
 
-const ItemActionButtonEdit = styled(Button)
-.attrs({color: 'green'})``;
+const ItemActionButtonEdit = styled(Button).attrs({color: 'green'})``;
 
 const ItemActionsDelete = styled(View)`
   flex: 1;
 `;
 
-const ItemActionButtonDelete = styled(Button)
-.attrs({color: 'red'})``;
+const ItemActionButtonDelete = styled(Button).attrs({color: 'red'})``;
 
 export {
   Conteiner,
@@ -65,7 +63,7 @@ export {
   Item,
   ItemTextLocation,
   ItemTextPerson,
-  ItemTextPersonName, 
+  ItemTextPersonName,
   ItemActions,
   ItemActionsEdit,
   ItemActionButtonEdit,
