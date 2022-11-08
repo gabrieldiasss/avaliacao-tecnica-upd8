@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { Pressable, TextInput, View } from "react-native";
 import { useClientsCreate } from "../../hooks/clients";
 import { ClientsCreateScreen } from "../../routes/clients/clients.routes";
 import RadioForm from 'react-native-simple-radio-button';
@@ -10,9 +10,22 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { ClientCreateDto } from "../../services/clients-service";
 import moment from "moment";
+import {
+  Conteiner,
+  Actions,
+  TextLabel,
+  TextLabelAddress,
+  TextLabelGender,
+  TextTitle,
+  ActionButtonBack,
+  ActionsSave,
+  ActionButtonSave,
+  ActionsClear,
+  ActionButtonClear
+} from "./styles";
 
 const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }) => {
-  const { mutate, isSuccess, isLoading } = useClientsCreate();
+  const { mutate, isSuccess } = useClientsCreate();
   const [open, setOpen] = useState(false);
   const CPF_MASK = [/\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/]
   const form = useFormik<ClientCreateDto>({
@@ -52,26 +65,21 @@ const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }
   }, [isSuccess])
 
   return (
-    <ScrollView style={{ flex: 1, margin: 20 }}>
-      <Text style={{
-        fontSize: 18, 
-        marginBottom: 10, 
-        borderColor: 'gray', 
-        borderBottomWidth: 0.5
-      }}>Cadastro de Cliente</Text>
-      <Text style={{fontSize: 10, marginBottom: -10}}>CPF</Text>
+    <Conteiner>
+      <TextTitle>Cadastro de Cliente</TextTitle>
+      <TextLabel>CPF</TextLabel>
       <MaskInput
         value={form.values.cpf}
         placeholder={'Escreva aqui...'}
         onChangeText={form.handleChange('cpf')}
         mask={CPF_MASK}
       />
-      <Text style={{fontSize: 10, marginBottom: -10}}>NOME</Text>
+      <TextLabel>NOME</TextLabel>
       <TextInput
         value={form.values.name}
         onChangeText={form.handleChange('name')}
         placeholder="Escreva aqui..."/>
-      <Text style={{fontSize: 10, marginBottom: -10}}>DATA DE NASCIMENTO</Text>
+      <TextLabel>DATA DE NASCIMENTO</TextLabel>
       <Pressable onPress={() => setOpen(true)}>
         <View pointerEvents="none">
           <TextInput
@@ -93,7 +101,7 @@ const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }
           setOpen(false)
         }}
       />
-      <Text style={{fontSize: 10, marginBottom: 5}}>SEXO</Text>
+      <TextLabelGender>SEXO</TextLabelGender>
       <RadioForm
         radio_props={[
           {label: 'Masculino  ', value: 0 },
@@ -103,12 +111,12 @@ const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }
         initial={form.values.gender === 'MALE' ? 0:1}
         onPress={(data) => form.setFieldValue('gender', data === 0 ? 'MALE':'FEMALE')}
       />
-      <Text style={{fontSize: 10, marginBottom: -10, marginTop: 5}}>ENDEREÇO</Text>
+      <TextLabelAddress>ENDEREÇO</TextLabelAddress>
       <TextInput 
         value={form.values.address}
         onChangeText={form.handleChange('address')}
         placeholder="Escreva aqui..."/>
-      <Text style={{fontSize: 10, marginBottom: -10}}>ESTADO</Text>
+      <TextLabel>ESTADO</TextLabel>
       <Picker
         style={{marginLeft:-13}}
         itemStyle={{paddingLeft:-100}}
@@ -144,26 +152,21 @@ const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }
         <Picker.Item label="Tocantins" value="TO"/>
         <Picker.Item label="Distrito Federal" value="DF"/>
       </Picker>
-      <Text style={{fontSize: 10, marginBottom: -10}}>CIDADE</Text>
+      <TextLabel>CIDADE</TextLabel>
       <TextInput 
         value={form.values.city}
         onChangeText={form.handleChange('city')}
         placeholder="Escreva aqui..."/>
-      <View style={{
-        marginBottom: 10, 
-        flex: 1, 
-        flexDirection:'row', 
-        alignContent: 'stretch'
-      }}>
-        <View style={{flex: 1, marginRight: 10}}>
-          <Button color={'green'} title="SALVAR" onPress={form.submitForm}/>
-        </View>
-        <View style={{flex: 1}}>
-          <Button color={'red'} title="LIMPAR" onPress={() => form.resetForm()}/>
-        </View>
-      </View>
-      <Button title="VOLTAR" onPress={() => goBack()}/>
-    </ScrollView>
+      <Actions>
+        <ActionsSave>
+          <ActionButtonSave title="SALVAR" onPress={form.submitForm}/>
+        </ActionsSave>
+        <ActionsClear>
+          <ActionButtonClear title="LIMPAR" onPress={form.resetForm}/>
+        </ActionsClear>
+      </Actions>
+      <ActionButtonBack title="VOLTAR" onPress={goBack}/>
+    </Conteiner>
   )
 }
 
