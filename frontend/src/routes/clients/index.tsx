@@ -9,7 +9,7 @@ const Stack = createStackNavigator<ClientsStack>()
 const ClientsRoutes: React.FC = () => (
   <Stack.Navigator
     screenOptions={{ headerShown: false }}
-    initialRouteName={'Create'}>
+    initialRouteName={'List'}>
     <Stack.Screen name="List" component={ClientsList} />
     <Stack.Screen name="Create" component={ClientsCreate} />
   </Stack.Navigator>
