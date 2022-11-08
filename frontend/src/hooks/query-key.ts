@@ -1,5 +1,5 @@
 const QueryKey = {
-  CLIENTS: 'clients'
+  CLIENTS: 'CLIENTS'
 } as const
 
 export { QueryKey }

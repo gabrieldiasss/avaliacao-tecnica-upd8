@@ -16,7 +16,7 @@ function useClientsCreate(
         return Alert.alert('Erro ao criar client, tente mais tarde.')
       },
       onSuccess: (data, vars, ctx) => {
-        queryClient.invalidateQueries(QueryKey.CLIENTS)
+        queryClient.invalidateQueries([QueryKey.CLIENTS])
         options?.onSuccess?.(data, vars, ctx)
       },
     })

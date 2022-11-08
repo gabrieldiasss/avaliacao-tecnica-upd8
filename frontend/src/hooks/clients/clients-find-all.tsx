@@ -5,14 +5,14 @@ import { Client } from "../../types/client.type";
 import { QueryKey } from "../query-key";
 
 type FindAllClientsOptions = Omit<
-  UseQueryOptions<Client[], unknown, Client[], 'CLIENTS'>,
+  UseQueryOptions<Client[], unknown, Client[], ['CLIENTS']>,
   'queryKey'
 >;
 
 function useClientsFindAll(options?: FindAllClientsOptions): UseQueryResult<Client[], unknown> {
-  return useQuery(QueryKey.CLIENTS, findAll, {
+  return useQuery([QueryKey.CLIENTS], findAll, {
     onError: e => {
-      Alert.alert('Erro ao buscar clients.', (e as Error).message)
+      Alert.alert('Erro ao buscar clientes.', (e as Error).message)
     },
     ...options,
   })

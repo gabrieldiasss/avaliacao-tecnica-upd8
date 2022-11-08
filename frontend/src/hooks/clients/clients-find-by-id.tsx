@@ -16,7 +16,7 @@ function useClientsFindById(options?: GetClientsFindByIdOptions): UseMutationRes
     },
     ...options,
     onSuccess: (data, vars, ctx) => {
-      options.invalidateQueries(QueryKey.CLIENTS)
+      options.invalidateQueries([QueryKey.CLIENTS])
       options?.onSuccess?.(data, vars, ctx)
     },
   })

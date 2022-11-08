@@ -5,21 +5,21 @@ import { useMutation, UseMutationOptions, UseMutationResult, useQueryClient } fr
 import { QueryKey } from '../query-key'
 
 function useClientsUpdate(
-    options?: Omit<UseMutationOptions<Client, unknown, ClientUpdateDto, unknown>,'mutationFn'>,
-  ): UseMutationResult<Client, unknown, ClientUpdateDto, unknown> {
-  
-    const queryClient = useQueryClient()
-  
-    return useMutation(update, {
-      ...options,
-      onError: () => {
-        return Alert.alert('Erro ao atualizar client, tente mais tarde.')
-      },
-      onSuccess: (data, vars, ctx) => {
-        queryClient.invalidateQueries(QueryKey.CLIENTS)
-        options?.onSuccess?.(data, vars, ctx)
-      },
-    })
-  }
-  
-  export { useClientsUpdate }
+  options?: Omit<UseMutationOptions<Client, unknown, ClientUpdateDto, unknown>,'mutationFn'>,
+): UseMutationResult<Client, unknown, ClientUpdateDto, unknown> {
+
+  const queryClient = useQueryClient()
+
+  return useMutation(update, {
+    ...options,
+    onError: () => {
+      return Alert.alert('Erro ao criar client, tente mais tarde.')
+    },
+    onSuccess: (data, vars, ctx) => {
+      queryClient.invalidateQueries([QueryKey.CLIENTS])
+      options?.onSuccess?.(data, vars, ctx)
+    },
+  })
+}
+
+export { useClientsUpdate }
