@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateClientDto } from '../dtos/create-client.dto';
+import { FilterClientDto } from '../dtos/filter-client.dto';
 import { UpdateClientDto } from '../dtos/update-client.dto';
 import { ClientEntity } from '../entities/client.entity';
 
@@ -25,8 +26,8 @@ export class ClientsService {
     return this.clientRepository.findOne({ where: { id }});
   }
 
-  async findAll(): Promise<ClientEntity[]> {
-    return this.clientRepository.find();
+  async findAll(query: FilterClientDto): Promise<ClientEntity[]> {
+    return this.clientRepository.find({ where: query });
   }
 
   async delete(id: number): Promise<void> {

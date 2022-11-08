@@ -1,9 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { ClientEntity } from '../entities/client.entity';
 import { ClientsService } from '../services/clients.service';
 import { ApiOkResponse, ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateClientDto } from '../dtos/create-client.dto';
 import { UpdateClientDto } from '../dtos/update-client.dto';
+import { FilterClientDto } from '../dtos/filter-client.dto';
 
 @ApiTags('Clients')
 @Controller('clients')
@@ -32,8 +33,8 @@ export class ClientsController {
 
   @Get()
   @ApiOkResponse({ type: [ClientEntity] })
-  findAll(): Promise<ClientEntity[]> {
-    return this.clientsService.findAll();
+  findAll(@Query() query: FilterClientDto): Promise<ClientEntity[]> {
+    return this.clientsService.findAll(query);
   }
 
   @Delete(':id')

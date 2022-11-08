@@ -9,6 +9,7 @@ export type ClientsStack = {
     client: Client
   }
   List: undefined
+  Filter: undefined
 }
 
 /* ClientsCreate */
@@ -33,3 +34,11 @@ export type ClientsListScreen = CompositeScreenProps<
   StackScreenProps<MainStack>
 >
 export type ClientsListScreenNav = StackNavigationProp<ClientsStack, 'List'>
+
+/* ClientsListFilter */
+export type ClientsListFilterScreen = CompositeScreenProps<
+  StackScreenProps<ClientsStack, 'Filter'>,
+  StackScreenProps<MainStack>
+>
+
+export type ClientsListFilterScreenNav = StackNavigationProp<ClientsStack, 'Filter'>

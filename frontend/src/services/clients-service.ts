@@ -21,9 +21,19 @@ export interface ClientUpdateDto {
   city?: string;
 }
 
+export interface ClientFindAllParams {
+  cpf?: string;
+  name?: string;
+  birth?: Date;
+  gender?: 'MALE' | 'FEMALE';
+  address?: string;
+  state?: string;
+  city?: string;
+}
+
 const { findAll, del, update, create, findOne } = {
-  findAll: async (): Promise<Client[]> => {
-    const { data } = await api.get<Client[]>('clients')
+  findAll: async (params: ClientFindAllParams): Promise<Client[]> => {
+    const { data } = await api.get<Client[]>('clients', { params })
     return data
   },
   del: async (id: number): Promise<Client> => {
