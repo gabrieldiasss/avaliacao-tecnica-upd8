@@ -59,7 +59,7 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
         marginBottom: 10, 
         borderColor: 'gray', 
         borderBottomWidth: 0.5
-      }}>Atualização de cadastro de Cliente</Text>
+      }}>Atualização de cadastro do Cliente</Text>
       <Text style={{fontSize: 10, marginBottom: -10}}>CPF</Text>
       <MaskInput
         value={form.values.cpf}
@@ -117,8 +117,33 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
         onValueChange={(itemValue) =>
           form.setFieldValue('state', itemValue)
         }>
-        <Picker.Item label="São Paulo" value="SP" />
-        <Picker.Item label="Rio de Janeiro" value="RJ" />
+        <Picker.Item label="Acre" value="AC"/>
+        <Picker.Item label="Alagoas" value="AL"/>
+        <Picker.Item label="Amapá" value="AP"/>
+        <Picker.Item label="Amazonas" value="AM"/>
+        <Picker.Item label="Bahia" value="BA"/>
+        <Picker.Item label="Ceará" value="CE"/>
+        <Picker.Item label="Espírito Santo" value="ES"/>
+        <Picker.Item label="Goiás" value="GO"/>
+        <Picker.Item label="Maranhão" value="MA"/>
+        <Picker.Item label="Mato Grosso" value="MT"/>
+        <Picker.Item label="Mato Grosso do Sul" value="MS"/>
+        <Picker.Item label="Minas Gerais" value="MG"/>
+        <Picker.Item label="Pará" value="PA"/>
+        <Picker.Item label="Paraíba" value="PB"/>
+        <Picker.Item label="Paraná" value="PR"/>
+        <Picker.Item label="Pernambuco" value="PE"/>
+        <Picker.Item label="Piauí" value="PI"/>
+        <Picker.Item label="Rio de Janeiro" value="RJ"/>
+        <Picker.Item label="Rio Grande do Norte" value="RN"/>
+        <Picker.Item label="Rio Grande do Sul" value="RS"/>
+        <Picker.Item label="Rondônia" value="RO"/>
+        <Picker.Item label="Roraima" value="RR"/>
+        <Picker.Item label="Santa Catarina" value="SC"/>
+        <Picker.Item label="São Paulo" value="SP"/>
+        <Picker.Item label="Sergipe" value="SE"/>
+        <Picker.Item label="Tocantins" value="TO"/>
+        <Picker.Item label="Distrito Federal" value="DF"/>
       </Picker>
       <Text style={{fontSize: 10, marginBottom: -10}}>CIDADE</Text>
       <TextInput 
@@ -132,13 +157,12 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
         alignContent: 'stretch'
       }}>
         <View style={{flex: 1, marginRight: 10}}>
-          <Button color={'green'} title="SALVAR" onPress={form.submitForm}/>
+          <Button color={'red'} title="VOLTAR" onPress={() => goBack()}/>
         </View>
         <View style={{flex: 1}}>
-          <Button color={'red'} title="LIMPAR" onPress={() => form.resetForm()}/>
+          <Button color={'green'} title="SALVAR" onPress={form.submitForm}/>
         </View>
       </View>
-      <Button title="VOLTAR" onPress={() => goBack()}/>
     </ScrollView>
   )
 }
