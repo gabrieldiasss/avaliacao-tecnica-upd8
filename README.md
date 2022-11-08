@@ -64,3 +64,10 @@ run `yarn start:dev`
 
 ## Documentation da API (Swagger)
 http://localhost:3000/api#/
+
+
+## Prints da tela
+
+<img width="500" src="https://user-images.githubusercontent.com/10448568/200480974-eedd1732-17e1-408c-9a18-a03bcf29f057.png">
+<img width="500" src="https://user-images.githubusercontent.com/10448568/200480988-f06a3d3e-d501-4744-94aa-c12e3078c327.png">
+<img width="500" src="https://user-images.githubusercontent.com/10448568/200480994-71809380-fbf9-4f19-86ab-a69af695e338.png">
