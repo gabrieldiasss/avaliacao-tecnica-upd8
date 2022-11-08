@@ -13,7 +13,6 @@ import { ClientEntity } from './modules/clients/entities/client.entity';
       password: 'password',
       database: 'db',
       entities: [ClientEntity],
-      migrations: ['src/migration/*{.ts,.js}'],
       synchronize: false,
     }),
     ClientsModule

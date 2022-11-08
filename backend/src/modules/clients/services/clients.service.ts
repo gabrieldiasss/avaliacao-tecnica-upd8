@@ -27,6 +27,8 @@ export class ClientsService {
   }
 
   async findAll(query: FilterClientDto): Promise<ClientEntity[]> {
+    delete query['queryKey']
+    delete query['signal']
     return this.clientRepository.find({ where: query });
   }
 
