@@ -23,9 +23,18 @@ const ClientsList: React.FC<ClientsListScreen> = ({ navigation: { navigate } }) 
     return (
       <Conteiner>
         <TextTitle>Cadastro de Clientes</TextTitle>
-          <ActionButtonCreate
-            title="NOVO CADASTRO"
-            onPress={() => navigate('Create')} />
+        <ItemActions>
+          <ItemActionsEdit>
+            <ActionButtonCreate
+              title="FILTAR"
+              onPress={() => navigate('Filter')} />
+          </ItemActionsEdit>
+          <ItemActionsDelete>
+            <ItemActionButtonEdit
+              title="NOVO CADASTRO"
+              onPress={() => navigate('Create')} />
+          </ItemActionsDelete>
+        </ItemActions>
           {clients?.map(client => {
             return <Item>
               <ItemTextPersonName>{client.name}</ItemTextPersonName>
