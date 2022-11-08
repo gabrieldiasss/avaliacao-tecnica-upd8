@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Button, Pressable, ScrollView, Text, TextInput, View } from "react-native";
-import { ClientsUpdateScreen } from "../../routes/clients/clients.routes";
+import { Pressable, TextInput, View } from "react-native";
 import RadioForm from 'react-native-simple-radio-button';
 import { Picker } from '@react-native-picker/picker';
 import DatePicker from 'react-native-date-picker'
 import MaskInput from 'react-native-mask-input'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { ClientUpdateDto } from "../../services/clients-service";
 import moment from "moment";
+import { ClientsUpdateScreen } from "../../routes/clients/clients.routes";
+import { ClientUpdateDto } from "../../services/clients-service";
 import { useClientsUpdate } from "../../hooks/clients";
+import {
+  ActionButtonBack,
+  ActionButtonSave,
+  Actions,
+  ActionsClear,
+  ActionsSave,
+  Conteiner,
+  TextLabel,
+  TextLabelAddress,
+  TextLabelGender,
+  TextTitle
+} from "./styles";
 
 const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goBack } }) => {
   const client = route.params?.client;
@@ -53,26 +65,21 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
   }, [isSuccess])
 
   return (
-    <ScrollView style={{ flex: 1, margin: 20 }}>
-      <Text style={{
-        fontSize: 18, 
-        marginBottom: 10, 
-        borderColor: 'gray', 
-        borderBottomWidth: 0.5
-      }}>Atualização de cadastro do Cliente</Text>
-      <Text style={{fontSize: 10, marginBottom: -10}}>CPF</Text>
+    <Conteiner>
+      <TextTitle>Atualização de cadastro do cliente</TextTitle>
+      <TextLabel>CPF</TextLabel>
       <MaskInput
         value={form.values.cpf}
         placeholder={'Escreva aqui...'}
         onChangeText={form.handleChange('cpf')}
         mask={CPF_MASK}
       />
-      <Text style={{fontSize: 10, marginBottom: -10}}>NOME</Text>
+      <TextLabel>NOME</TextLabel>
       <TextInput
         value={form.values.name}
         onChangeText={form.handleChange('name')}
         placeholder="Escreva aqui..."/>
-      <Text style={{fontSize: 10, marginBottom: -10}}>DATA DE NASCIMENTO</Text>
+      <TextLabel>DATA DE NASCIMENTO</TextLabel>
       <Pressable onPress={() => setOpen(true)}>
         <View pointerEvents="none">
           <TextInput
@@ -94,7 +101,7 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
           setOpen(false)
         }}
       />
-      <Text style={{fontSize: 10, marginBottom: 5}}>SEXO</Text>
+      <TextLabelGender>SEXO</TextLabelGender>
       <RadioForm
         radio_props={[
           {label: 'Masculino  ', value: 0 },
@@ -104,12 +111,12 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
         initial={form.values.gender === 'MALE' ? 0:1}
         onPress={(data) => form.setFieldValue('gender', data === 0 ? 'MALE':'FEMALE')}
       />
-      <Text style={{fontSize: 10, marginBottom: -10, marginTop: 5}}>ENDEREÇO</Text>
+      <TextLabelAddress>ENDEREÇO</TextLabelAddress>
       <TextInput 
         value={form.values.address}
         onChangeText={form.handleChange('address')}
         placeholder="Escreva aqui..."/>
-      <Text style={{fontSize: 10, marginBottom: -10}}>ESTADO</Text>
+      <TextLabel>ESTADO</TextLabel>
       <Picker
         style={{marginLeft:-13}}
         itemStyle={{paddingLeft:-100}}
@@ -145,25 +152,20 @@ const ClientsUpdate: React.FC<ClientsUpdateScreen> = ({ route, navigation: { goB
         <Picker.Item label="Tocantins" value="TO"/>
         <Picker.Item label="Distrito Federal" value="DF"/>
       </Picker>
-      <Text style={{fontSize: 10, marginBottom: -10}}>CIDADE</Text>
+      <TextLabel>CIDADE</TextLabel>
       <TextInput 
         value={form.values.city}
         onChangeText={form.handleChange('city')}
         placeholder="Escreva aqui..."/>
-      <View style={{
-        marginBottom: 10, 
-        flex: 1, 
-        flexDirection:'row', 
-        alignContent: 'stretch'
-      }}>
-        <View style={{flex: 1, marginRight: 10}}>
-          <Button color={'red'} title="VOLTAR" onPress={() => goBack()}/>
-        </View>
-        <View style={{flex: 1}}>
-          <Button color={'green'} title="SALVAR" onPress={form.submitForm}/>
-        </View>
-      </View>
-    </ScrollView>
+      <Actions>
+        <ActionsClear>
+          <ActionButtonBack title="VOLTAR" onPress={goBack}/>
+        </ActionsClear>
+        <ActionsSave>
+          <ActionButtonSave title="SALVAR" onPress={form.submitForm}/>
+        </ActionsSave>
+      </Actions>
+    </Conteiner>
   )
 }
 
