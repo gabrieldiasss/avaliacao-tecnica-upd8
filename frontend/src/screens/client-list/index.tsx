@@ -65,6 +65,8 @@ const ClientsList: React.FC<ClientsListScreen> = ({navigation: {navigate}}) => {
           </Item>
         );
       })}
+
+      
     </Conteiner>
   );
 };

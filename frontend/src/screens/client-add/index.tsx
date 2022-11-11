@@ -10,6 +10,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { ClientCreateDto } from "../../services/clients-service";
 import moment from "moment";
+
 import {
   Conteiner,
   Actions,
@@ -24,7 +25,7 @@ import {
   ActionButtonClear
 } from "./styles";
 
-const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }) => {
+const ClientsCreate: React.FC<ClientsCreateScreen> = ({ route, navigation: { goBack } }) => {
   const { mutate, isSuccess } = useClientsCreate();
   const [open, setOpen] = useState(false);
   const CPF_MASK = [/\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/]
@@ -66,7 +67,7 @@ const ClientsCreate: React.FC<ClientsCreateScreen> = ({ navigation: { goBack } }
 
   return (
     <Conteiner>
-      <TextTitle>Cadastro de Cliente</TextTitle>
+      <TextTitle>{route.name === "Create" ? "Criar cadastro" : 'Atualização de cadastro do cliente'}</TextTitle>
       <TextLabel>CPF</TextLabel>
       <MaskInput
         value={form.values.cpf}
